@@ -1,29 +1,31 @@
 <?php
 
 namespace App\Http\Controllers;
+
+
+use App\Models\Prospecto;
 use Illuminate\Support\Facades\Validator;
-use App\Models\User;
+
 use Illuminate\Http\Request;
-use App\Models\Promotor;
 
-
-class PromotorController extends Controller
+class ProspectoController extends Controller
 {
-    //
-    
     public function index(){
         
-        $promotor = new Promotor();
+        $prospecto = new Prospecto();
         
-        return  $promotor->with('ocupacionData')->get();
+        return  $prospecto->with('promotor')->get();
     }
     
-    public function getPromotor(Request $request){
+    public function getProspecto(Request $request){
         
-        $promotor =Promotor::with('ocupacionData')->find($request -> id);
+        $prospecto =Prospecto::with('promotor')->find($request -> id);
+
         
-        return  $promotor ;
+        return  $prospecto;
     }
+    
+    
     
     public function create(Request $request){
         
@@ -31,25 +33,25 @@ class PromotorController extends Controller
             'nombre' => 'required|max:50',
             'apellido_p' => 'required|max:50',
             'apellido_m' => 'required|max:50',
-            'numempleado' => 'required|max:10|min:10|unique:promotores',
-            'email'         => 'email',
-            'password'         => 'required|min:8',
-            'curp'         => 'required',
-            'rfc'         => 'required',
-            'nss'         => 'required|min:10',
-            //'foto'         => 'required',
-            'fecha_nacimiento'         => 'required',
             'genero'         => 'required|max:1',
+            'estadoCivil'         => 'required|max:1',
+            'nss'         => 'required|min:10',
+            'curp'         => 'required',
+            'tipoCredito'         => 'required',
+            'fecha_nacimiento'         => 'required',
             'numtelefono'         => 'required|max:10',
-            'ocupacion'         => 'required',
+            'fecha_captura'         => 'required',
+            'anticipo'         => 'required',
+            'promotorid'         => 'required',
+            
         ]);
         if($data -> fails()){
              return  ['resultado'=>false ,  $data ->errors()];
         }
         
-        if(Promotor::create($request->all())){
+        if(Prospecto::create($request->all())){
             
-            return ['resultado'  => true , 'msg' => 'Se agrego al promotor'];
+            return ['resultado'  => true , 'msg' => 'Se agrego al prospecto'];
             
         }else{
             
@@ -67,27 +69,27 @@ class PromotorController extends Controller
             'nombre' => 'required|max:50',
             'apellido_p' => 'required|max:50',
             'apellido_m' => 'required|max:50',
-            'numempleado' => 'required|max:10|min:10|unique:promotores',
-            'email'         => 'email',
-            'password'         => 'required|min:8',
-            'curp'         => 'required',
-            'rfc'         => 'required',
-            'nss'         => 'required|min:10',
-            //'foto'         => 'required',
-            'fecha_nacimiento'         => 'required',
             'genero'         => 'required|max:1',
+            'estadoCivil'         => 'required|max:1',
+            'nss'         => 'required|min:10',
+            'curp'         => 'required',
+            'tipoCredito'         => 'required',
+            'fecha_nacimiento'         => 'required',
             'numtelefono'         => 'required|max:10',
-            'ocupacion'         => 'required',
+            'fecha_captura'         => 'required',
+            'anticipo'         => 'required',
+            'promotorid'         => 'required',
+            
         ]);
         
         if($data -> fails()){
              return  ['resultado'=>false ,  $data ->errors()];
         }
-        $promotor =Promotor::findOrfail($request -> id);
+        $prospecto =Prospecto::findOrfail($request -> id);
         
-        if($promotor->update($request->all())){
+        if($prospecto->update($request->all())){
             
-            return ['resultado'  => true , 'msg' => 'Se actualizo al promotor'];
+            return ['resultado'  => true , 'msg' => 'Se actualizo al prospecto'];
             
         }else{
             
@@ -101,22 +103,22 @@ class PromotorController extends Controller
         
         $data =Validator::make($request->all(),[
             'id' => 'required',
-        
         ]);
+        
         if($data -> fails()){
              return  ['resultado'=>false ,  $data ->errors()];
         }
         
-        $promotor =Promotor::find($request -> id);
+        $prospecto =Prospecto::find($request -> id);
         
-        if(!$promotor){
-            return ['resultado'  => false , 'msg' => 'El promotor no existe'];
+        if(!$prospecto){
+            return ['resultado'  => false , 'msg' => 'El prospecto no existe'];
             
         }
         
-        if( $promotor-> delete( )){
+        if( $prospecto-> delete( )){
             
-            return ['resultado'  => true , 'msg' => 'Se elimino al promotor'];
+            return ['resultado'  => true , 'msg' => 'Se elimino al prospecto'];
             
         }else{
             
@@ -124,8 +126,7 @@ class PromotorController extends Controller
             
         }
         
+        
+        
     }
-    
-    
-    
 }

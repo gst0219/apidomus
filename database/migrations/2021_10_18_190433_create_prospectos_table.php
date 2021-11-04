@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePromotoresTable extends Migration
+class CreateProspectosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,22 +13,21 @@ class CreatePromotoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('promotores', function (Blueprint $table) {
+        Schema::create('prospectos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre',50);
             $table->string('apellido_p',50);
             $table->string('apellido_m',50);
-            $table->integer('numempleado');
-            $table->string('email') -> nullable();
-            $table->string('password');
-            $table->string('curp') -> nullable() ;
-            $table->string('rfc') -> nullable();
-            $table->string('nss') -> nullable();
-            $table->string('foto') -> nulleable();
-            $table->date('fecha_nacimiento')  -> nullable();
             $table->string('genero',1) -> nullable();
+            $table->string('estadoCivil') -> nullable();
+            $table->string('nss');
+            $table->string('curp') -> nullable() ;
+            $table->string('tipoCredito') -> nullable();
+            $table->date('fecha_nacimiento')  -> nullable();
             $table->string('num_telefono',10)-> nullable();
-            $table->integer('ocupacion')-> nullable();
+            $table->date('fecha_captura')  -> nullable();
+            $table->string('anticipo',1)  -> nullable();
+            $table->integer('promotorid')  -> nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -41,6 +40,6 @@ class CreatePromotoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('promotores');
+        Schema::dropIfExists('prospectos');
     }
 }
