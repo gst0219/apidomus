@@ -19,29 +19,25 @@ class ClienteController extends Controller
     
     public function create(Request $request){
             
-        $data =Validator::make($request->all(),[
+        
+        
+        $data =Validator::make($request->all(), [
             'nombre'           => 'required',
             'apellido_p'       => 'required',
             'apellido_m'       => 'required',
-            'genero'           => 'required',
             'estadoCivil'      => 'required',
             'nss'              => 'required',
             'curp'             => 'required',
             'tipoCredito'      => 'required',
             'fecha_nacimiento' => 'required',
             'num_telefono'     => 'required',
-            'fecha_captura'    => 'required',
-            'anticipo'         => 'required',
-            'genero'           => 'required',
-            'promotorid'       => 'required',
-            'prospectoid'     => 'required' ,
-            'usuario'       => 'required',
-            'password'     => 'required' 
+            'usuario'          => 'required|unique:clientes',
+            'password'          => 'required' 
         ]); 
         
-        if($data -> fails()){
-             return  ['resultado'=>false ,  $data ->errors()];
-        }
+        if($data->fails()){
+            return  ['resultado'=>false ,'msg'=>$data ->errors()];
+       }
         
         if(Cliente::create($request->all())){
             
