@@ -18,8 +18,6 @@ class ClienteController extends Controller
     }
     
     public function create(Request $request){
-            
-        
         
         $data =Validator::make($request->all(), [
             'nombre'           => 'required',
