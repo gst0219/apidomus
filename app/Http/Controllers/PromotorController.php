@@ -34,7 +34,6 @@ class PromotorController extends Controller
             'numempleado' => 'required|max:10|min:10|unique:promotores',
             'email'         => 'email',
             'password'         => 'required|min:8',
-            'fecha_nacimiento'         => 'required',
             'ocupacion'         => 'required',
         ]);
         if($data -> fails()){
