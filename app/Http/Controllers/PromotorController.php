@@ -132,10 +132,10 @@ class PromotorController extends Controller
         
         
         if($promotor){
-            return ['resultado' => true , 'msg' => 'Se inicio sesion correctamente'];
+            return ['resultado' => true , 'msg' => 'Se inicio sesion correctamente' , 'promotor' => $promotor ];
         }
         
-        return ['resultado' => false , 'msg' => 'Error de autentificacion' , 'promotorid' => $promotor -> id];
+        return ['resultado' => false , 'msg' => 'Error de autentificacion' ];
  
         
     }
