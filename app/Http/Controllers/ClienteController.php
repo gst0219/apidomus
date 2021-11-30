@@ -53,27 +53,6 @@ class ClienteController extends Controller
     
     public function edit(Request $request){
         
-        $data =Validator::make($request->all(),[
-            'nombre'           => 'required',
-            'apellido_p'       => 'required',
-            'apellido_m'       => 'required',
-            'genero'           => 'required',
-            'estadoCivil'      => 'required',
-            'nss'              => 'required',
-            'curp'             => 'required',
-            'tipoCredito'      => 'required',
-            'fecha_nacimiento' => 'required',
-            'num_telefono'     => 'required',
-            'fecha_captura'    => 'required',
-            'anticipo'         => 'required',
-            'genero'           => 'required',
-            'promotorid'       => 'required',
-            'prospectoid'     => 'required' ,
-            'id'              => 'required',
-            'usuario'       => 'required',
-            'password'     => 'required' 
-            
-        ]);
         
         if($data -> fails()){
              return  ['resultado'=>false ,  $data ->errors()];

@@ -135,7 +135,7 @@ class PromotorController extends Controller
             return ['resultado' => true , 'msg' => 'Se inicio sesion correctamente'];
         }
         
-        return ['resultado' => false , 'msg' => 'Error de autentificacion'];
+        return ['resultado' => false , 'msg' => 'Error de autentificacion' , 'promotorid' => $promotor -> id];
  
         
     }
