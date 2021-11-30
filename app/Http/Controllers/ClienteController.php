@@ -53,10 +53,7 @@ class ClienteController extends Controller
     
     public function edit(Request $request){
         
-        
-        if($data -> fails()){
-             return  ['resultado'=>false ,  $data ->errors()];
-        }
+      
         $cliente =Cliente::findOrfail($request -> id);
         
         if($cliente->update($request->all())){
@@ -105,7 +102,6 @@ class ClienteController extends Controller
     
     public function login ( Request $request){
         
-    
         $cliente = Cliente::where('usuario', '=' , $request->usuario )-> where('password' , '=' , $request ->password)-> first();
         
         if($cliente){
