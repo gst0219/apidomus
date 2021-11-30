@@ -128,7 +128,7 @@ class PromotorController extends Controller
     
     public function login (Request $request){
         
-        $promotor = Promotor::where('numempleado', '=' , $request -> numempleado) -> where ('password' , '=' , $request ->pass)->first();
+        $promotor = Promotor::where('email', '=' , $request -> email) -> where ('password' , '=' , $request ->pass)->first();
         
         
         if($promotor){
