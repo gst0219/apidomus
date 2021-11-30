@@ -37,7 +37,6 @@ class PromotorController extends Controller
             'curp'         => 'required',
             'rfc'         => 'required',
             'nss'         => 'required|min:10',
-            //'foto'         => 'required',
             'fecha_nacimiento'         => 'required',
             'genero'         => 'required|max:1',
             'numtelefono'         => 'required|max:10',
@@ -62,27 +61,7 @@ class PromotorController extends Controller
     
     
     public function edit(Request $request){
-        
-        $data =Validator::make($request->all(),[
-            'nombre' => 'required|max:50',
-            'apellido_p' => 'required|max:50',
-            'apellido_m' => 'required|max:50',
-            'numempleado' => 'required|max:10|min:10|unique:promotores',
-            'email'         => 'email',
-            'password'         => 'required|min:8',
-            'curp'         => 'required',
-            'rfc'         => 'required',
-            'nss'         => 'required|min:10',
-            //'foto'         => 'required',
-            'fecha_nacimiento'         => 'required',
-            'genero'         => 'required|max:1',
-            'numtelefono'         => 'required|max:10',
-            'ocupacion'         => 'required',
-        ]);
-        
-        if($data -> fails()){
-             return  ['resultado'=>false ,  $data ->errors()];
-        }
+     
         $promotor =Promotor::findOrfail($request -> id);
         
         if($promotor->update($request->all())){
