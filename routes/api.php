@@ -34,6 +34,8 @@ Route::post('/PromotorCtrl/delete', 'PromotorController@delete');
 
 Route::post('/PromotorCtrl/getpromotor', 'PromotorController@getPromotor');
 
+Route::post('/PromotorCtrl/login', 'PromotorController@login');
+
 
 /****************************************************
 ****************************************************
