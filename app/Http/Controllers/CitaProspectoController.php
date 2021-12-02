@@ -12,7 +12,10 @@ class CitaProspectoController extends Controller
     
     public function index(Request $request){
          
-        $citas =CitaProspecto::where('prospectoid' ,'=', $request->prospectoid)->with('promotor','prospecto','inmueble')->get();
+        if($request->prospectoid)
+        $citas =CitaProspecto::where('prospectoid' ,'=', $request->prospectoid)->with('promotor','cliente','inmueble')->get();
+        else if ($request -> promotorid)
+        $citas =CitaProspecto::where('promotorid' ,'=', $request->promotorid)->with('promotor','cliente','inmueble')->get();
         
         return $citas ;
     }
