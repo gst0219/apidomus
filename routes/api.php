@@ -161,7 +161,7 @@ Route::post('/ClienteCtrl/login',          'ClienteController@login');
 ****************************************************
 ****************************************************/
 
-Route::post( '/CitaProspectoCtrl/index',           'CitaProspectoController@index');
+Route::get( '/CitaProspectoCtrl/index',           'CitaProspectoController@index');
 
 Route::post('/CitaProspectoCtrl/create',          'CitaProspectoController@create');
 

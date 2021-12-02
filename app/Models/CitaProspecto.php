@@ -20,8 +20,8 @@ class CitaProspecto extends Model
           
     
       
-    public function prospecto(){
-        return $this->BelongsTo('App\Models\Prospecto','prospectoid','id') -> withDefault();
+    public function cliente(){
+        return $this->BelongsTo('App\Models\Cliente','prospectoid','id') -> withDefault();
         
     }
     
