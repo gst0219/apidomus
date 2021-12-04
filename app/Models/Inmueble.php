@@ -17,7 +17,7 @@ class Inmueble extends Model
         'banos'         ,
         'cochera'       ,
         'plazas'         ,
-        'sectodid'
+        'sectorid'
     ];
     
     public function sector(){
