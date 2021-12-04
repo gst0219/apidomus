@@ -113,7 +113,7 @@ class InmuebleController extends Controller
     
     public function getInmueble(Request $request){
         
-        $inmueble =Inmueble::find($request -> id) ->with('sector');
+        $inmueble =Inmueble::where('id' , '=' ,$request -> id) ->with('sector') ->firt();
 
         
         return  $inmueble;
