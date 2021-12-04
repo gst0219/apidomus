@@ -121,7 +121,7 @@ class CitaProspectoController extends Controller
         
     public function getCita ( Request $request){
         
-        $cita = CitaProspecto::find($request->id);
+        $cita = CitaProspecto::find($request->id)->with('promotor','cliente','inmueble');
         
         if($cita){
             return ['resultado'  => true , 'msg' => '' , 'cita' => $cita ];
