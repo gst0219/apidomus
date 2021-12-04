@@ -21,7 +21,8 @@ class Inmueble extends Model
     ];
     
     public function sector(){
-        return $this->belongsTo( 'App\models\Sector' , 'sectorid' , 'id' ) -> withDefault();
+        return $this->BelongsTo('App\Models\Sector','sectorid','id') -> withDefault();
+        
     }
 }
 
