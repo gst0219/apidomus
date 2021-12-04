@@ -117,4 +117,19 @@ class CitaProspectoController extends Controller
     
         
     }
+    
+        
+    public function getCita ( Request $request){
+        
+        $cita = CitaProspecto::find($request->id);
+        
+        if($cita){
+            return ['resultado'  => true , 'msg' => '' , 'cita' => $cita ];
+            
+        }
+        return ['resultado'  => false , 'msg' => 'Error'  ];
+        
+        
+        
+    }
 }

@@ -172,6 +172,9 @@ Route::post('/CitaProspectoCtrl/edit',            'CitaProspectoController@edit'
 
 Route::post('/CitaProspectoCtrl/delete',          'CitaProspectoController@delete');
 
+Route::post('/CitaProspectoCtrl/getCita',          'CitaProspectoController@getCita');
+
+
 
 
 

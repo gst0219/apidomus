@@ -119,7 +119,7 @@ class ClienteController extends Controller
         $cliente = Cliente::find($request->id);
         
         if($cliente){
-            return ['resultado'  => true , 'msg' => 'Se inicio sesión' , 'cliente' => $cliente ];
+            return ['resultado'  => true , 'msg' => '' , 'cliente' => $cliente ];
             
         }
         return ['resultado'  => false , 'msg' => 'Error'  ];
