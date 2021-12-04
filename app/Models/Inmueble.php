@@ -19,4 +19,10 @@ class Inmueble extends Model
         'plazas'         ,
         'sectodid'
     ];
+    
+    public function sector(){
+        return $this->belongsTo( 'App\models\Sector' , 'sectorid' , 'id' ) -> withDefault();
+    }
 }
+
+
