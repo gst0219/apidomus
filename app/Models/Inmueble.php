@@ -16,6 +16,7 @@ class Inmueble extends Model
         'habitaciones'  ,
         'banos'         ,
         'cochera'       ,
-        'plazas'         
+        'plazas'         ,
+        'sectodid'
     ];
 }
