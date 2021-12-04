@@ -114,5 +114,21 @@ class ClienteController extends Controller
         
     }
     
+    public function getCliente ( Request $request){
+        
+        $cliente = Cliente::find($request->id);
+        
+        if($cliente){
+            return ['resultado'  => true , 'msg' => 'Se inicio sesión' , 'cliente' => $cliente ];
+            
+        }
+        return ['resultado'  => false , 'msg' => 'Error'  ];
+        
+        
+        
+    }
+    
+    
+    
     
 }

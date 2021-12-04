@@ -151,6 +151,9 @@ Route::post('/ClienteCtrl/delete',          'ClienteController@delete');
 
 Route::post('/ClienteCtrl/login',          'ClienteController@login');
 
+Route::post( '/ClienteCtrl/getCliente',           'ClienteController@getCliente');
+
+
 
 
 
@@ -174,7 +177,7 @@ Route::post('/CitaProspectoCtrl/delete',          'CitaProspectoController@delet
 
 
 /****************************************************
-****************************************************
+****************************************************GET
 **************Apartado methods**********************
 ****************************************************
 ****************************************************/
