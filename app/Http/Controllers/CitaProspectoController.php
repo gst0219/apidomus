@@ -16,6 +16,9 @@ class CitaProspectoController extends Controller
         $citas =CitaProspecto::where('prospectoid' ,'=', $request->prospectoid)->with('promotor','cliente','inmueble')->get();
         else if ($request -> promotorid)
         $citas =CitaProspecto::where('promotorid' ,'=', $request->promotorid)->with('promotor','cliente','inmueble')->get();
+        else
+        $citas =CitaProspecto::with('promotor','cliente','inmueble')->get();
+        
         
         return $citas ;
     }
