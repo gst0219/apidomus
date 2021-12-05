@@ -16,7 +16,7 @@ class SectorController extends Controller
         
         $sector = new Sector();
         
-        return  $sector-> with('sector') ->get();
+        return  $sector-> get();
     }
     
     public function create(Request $request){
